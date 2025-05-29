@@ -98,6 +98,11 @@ public class Session4 {
 //        System.out.println(badString.substring(2, 10));
 //        System.out.println(badString.substring(badString.indexOf(" is"), badString.lastIndexOf("d") + 1));
 
+        String username = "my.home.mail@gmail.com";
+
+        System.out.println(username.endsWith("@gmail.com"));
+        String repeat = "my.home.mail@gmail.com";
+        System.out.println(repeat.replace(".", "_") );
 
     }
 }
