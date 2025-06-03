@@ -100,9 +100,20 @@ public class Session4 {
 
         String username = "my.home.mail@gmail.com";
 
-        System.out.println(username.endsWith("@gmail.com"));
+        System.out.println(username.endsWith("@gmail.com"));//закінчується на gmail.com
+        System.out.println("=====================================");
+
+
+
+        String email = "my.home.mail@gmail.com";
+        String badEmail = "my.home.mail@@gmail.com";
+        System.out.println(email.indexOf("@") == email.lastIndexOf("@"));
+        System.out.println(badEmail.indexOf("@") == badEmail.lastIndexOf("@"));//не містить більше одного символу @
+
         String repeat = "my.home.mail@gmail.com";
         System.out.println(repeat.replace(".", "_") );
+
+        
 
     }
 }
