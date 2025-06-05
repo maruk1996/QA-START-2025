@@ -109,9 +109,15 @@ public class Session4 {
         String badEmail = "my.home.mail@@gmail.com";
         System.out.println(email.indexOf("@") == email.lastIndexOf("@"));
         System.out.println(badEmail.indexOf("@") == badEmail.lastIndexOf("@"));//не містить більше одного символу @
+        System.out.println("=====================================");
 
         String repeat = "my.home.mail@gmail.com";
-        System.out.println(repeat.replace(".", "_") );
+        int lastDotIndex = (repeat.lastIndexOf("."));
+        String beforeLastDot = repeat.substring(0, lastDotIndex);
+        String afterLastDot = repeat.substring(lastDotIndex);
+        beforeLastDot = beforeLastDot.replace(".", "_");
+        String result = beforeLastDot + afterLastDot;
+        System.out.println(result);//замінити всі крапки на _ окрім останньої
 
         
 
