@@ -18,7 +18,7 @@ public class Session3 {
 
         while (unsorted) {
             boolean elementsSwitched = false;
-            for (int i = 0; i < hotelRooms.length; i++) {
+            for (int i = 0; i < hotelRooms.length - 1; i++) {
                 if (i+1 < hotelRooms.length) {
                     System.out.println(hotelRooms[i]);
                     System.out.println(hotelRooms[i+1]);
