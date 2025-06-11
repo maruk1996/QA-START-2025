@@ -14,8 +14,7 @@ public class Plane2 {
 
 
 
-
-    public Plane2(UUID flightId, int maxPassengers, int currentPassengers, int availableSeats) {
+//    public Plane2(UUID flightId, int maxPassengers, int currentPassengers, int availableSeats) {
         this.flightId = new Random().nextInt(1000, 9999);
         this.maxPassengers = maxPassengers;
         this.currentPassengers = currentPassengers;
