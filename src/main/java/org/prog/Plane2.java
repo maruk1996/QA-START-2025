@@ -10,6 +10,8 @@ public class Plane2 {
     public int currentPassengers;
     public int availableSeats;
     public String destinationCity;
+    public int percentageOfSeatsTakes;
+
 
 
     public void goTo() {
@@ -17,6 +19,7 @@ public class Plane2 {
 
         System.out.println("The plane " + flightId +
                 " is going to " + destinationCity + " with " + currentPassengers + " passengers out of " +
-                maxPassengers + " possible. " + availableSeats + " available seats");
+                maxPassengers + " possible. " + availableSeats + " available seats" + ". "
+        + "Aircraft occupancy rate - " + percentageOfSeatsTakes + " %");
     }
 }
