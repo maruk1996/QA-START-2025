@@ -6,6 +6,7 @@ public class Car {
     public String color;
     public String destination;
     public String carName;
+    public String model;
 
     public void goTo() {
 
@@ -16,14 +17,15 @@ public class Car {
     public boolean equals(Object obj) {
         if (obj instanceof Car) {
             Car car = (Car) obj;
-            return this.color.equals(car.color);
+            if (equals(color, car.color) && equals(model, car.model);
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return color.hashCode();
+        return (this.model + this.color).hashCode();
+
     }
 
     @Override

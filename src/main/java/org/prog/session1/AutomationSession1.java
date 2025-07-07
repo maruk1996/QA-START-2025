@@ -25,11 +25,13 @@ public class AutomationSession1 {
         carMichael.carName = "Michael's ";
         carMichael.color = "red";
         carMichael.destination = "Kyiv";
+        carMichael.model = "BMW";
 
         Car carJane = new Car();
         carJane.carName = "Jane's ";
         carJane.color = "blue";
         carJane.destination = "Odessa";
+        carJane.model = "Volvo";
 
         carMichael.goTo();
         carJane.goTo();
