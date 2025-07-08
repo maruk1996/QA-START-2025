@@ -17,7 +17,7 @@ public class Car {
     public boolean equals(Object obj) {
         if (obj instanceof Car) {
             Car car = (Car) obj;
-            if (equals(color, car.color) && equals(model, car.model);
+            return equals(car.color) && equals(car.model);
         }
         return false;
     }
