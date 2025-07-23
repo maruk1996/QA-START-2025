@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.prog.session8.page.AlloPageHomework;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -19,6 +20,7 @@ public class WebTest {
     public void initWebDriver(){
         driver = new ChromeDriver();
     }
+
 
     @Test
     public void myGoogleTest() {
