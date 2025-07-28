@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import lombok.Data;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -29,8 +30,10 @@ public class RestTests {
         Assert.assertTrue(genders.contains("male"),
                 " should have at least 1 male");
 
+
         response.prettyPrint();
         ResultsDto dto = response.as(ResultsDto.class);
+
 
 //        List<String> firstLastNames = dto.getResults().stream()
 //                .filter(p -> p.getGender().equals("male"))
@@ -40,16 +43,26 @@ public class RestTests {
 //
 //        System.out.println(firstLastNames.size());
 
-        ValidatableResponse validatableResponse = response.then();
-        validatableResponse.statusCode(200);
-        validatableResponse.contentType(ContentType.JSON);
-        validatableResponse.body("results.gender", Matchers.hasItem("male"));
-        validatableResponse.body("results.gender", Matchers.hasItem("female"));
+        for (PersonDto person : dto.getResults()) {
+            Assert.assertTrue(person.getLocation() != null, "Location is null");
+            Assert.assertTrue(person.getLocation().getStreet() != null, "Street is null");
+            Assert.assertTrue(person.getLocation().getStreet().getNumber() > 0, "Street number must be > 0 ");
+            Assert.assertTrue(person.getLocation().getStreet().getName() != null, "Street name is null");
+            Assert.assertTrue(person.getLocation().getCoordinates() != null, "Coordinates is null");
+            Assert.assertTrue(person.getLocation().getCoordinates().getLatitude() != null, "Latitude is null");
+            Assert.assertTrue(person.getLocation().getCoordinates().getLongitude() != null, "Longitude is null");
 
-        //        List<String> values = response.jsonPath()
+            ValidatableResponse validatableResponse = response.then();
+            validatableResponse.statusCode(200);
+            validatableResponse.contentType(ContentType.JSON);
+            validatableResponse.body("results.gender", Matchers.hasItem("male"));
+            validatableResponse.body("results.gender", Matchers.hasItem("female"));
+
+            //        List<String> values = response.jsonPath()
 //                .get("results.findAll { it.gender == 'female' }.collect { it.name.first + ' ' + it.name.last }");
 //        System.out.println(values.size());
 
+        }
     }
 
     @Test
@@ -57,7 +70,7 @@ public class RestTests {
         RestAssured.given()
                 .baseUri("https://randomuser.me/")
                 .basePath("api/")
-                .queryParam("inc", "gender,name,nat")
+                .queryParam("inc", "gender,name,nat,location")
                 .queryParam("results", 3)
                 .queryParam("noinfo")
                 .get()
@@ -66,14 +79,17 @@ public class RestTests {
                 .contentType(ContentType.JSON)
                 .body("results.gender", Matchers.hasItem("male"))
                 .body("results.gender", Matchers.hasItem("female"));
+
     }
 
-    private RequestSpecification generateRequestSpecification(String baseUri) {
+
+
+        private RequestSpecification generateRequestSpecification(String baseUri) {
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.baseUri(baseUri);
         requestSpecification.basePath("api/");
 
-        requestSpecification.queryParam("inc", "gender,name,nat");
+        requestSpecification.queryParam("inc", "gender,name,nat, location");
         requestSpecification.queryParam("results", 3);
         requestSpecification.queryParam("noinfo");
         return requestSpecification;

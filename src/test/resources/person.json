@@ -1,31 +1,85 @@
 {
   "results": [
     {
-      "gender": "Male",
+      "gender": "male",
       "name": {
         "title": "Mr",
-        "first": "Hans-Gerhard",
-        "last": "Liebich"
+        "first": "Svobodan",
+        "last": "Ievdokimenko"
+      },
+      "location": {
+        "street": {
+          "number": 9416,
+          "name": "Eminesku"
+        },
+        "city": "Semenivka",
+        "state": "Sumska",
+        "country": "Ukraine",
+        "postcode": 44330,
+        "coordinates": {
+          "latitude": "78.6614",
+          "longitude": "-178.1862"
+        },
+        "timezone": {
+          "offset": "+9:30",
+          "description": "Adelaide, Darwin"
+        }
+      },
+      "nat": "UA"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Danica",
+        "last": "Rajković"
+      },
+      "location": {
+        "street": {
+          "number": 9277,
+          "name": "Dragiše Spasojevića"
+        },
+        "city": "Kanjiža",
+        "state": "South Banat",
+        "country": "Serbia",
+        "postcode": 74051,
+        "coordinates": {
+          "latitude": "-75.5293",
+          "longitude": "-160.9539"
+        },
+        "timezone": {
+          "offset": "+9:00",
+          "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+        }
+      },
+      "nat": "RS"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Magrit",
+        "last": "Krebs"
+      },
+      "location": {
+        "street": {
+          "number": 2605,
+          "name": "Lessingstraße"
+        },
+        "city": "Bad Marienberg (Westerwald)",
+        "state": "Hamburg",
+        "country": "Germany",
+        "postcode": 21262,
+        "coordinates": {
+          "latitude": "22.4913",
+          "longitude": "125.4635"
+        },
+        "timezone": {
+          "offset": "-4:00",
+          "description": "Atlantic Time (Canada), Caracas, La Paz"
+        }
       },
       "nat": "DE"
-    },
-    {
-      "gender": "Female",
-      "name": {
-        "title": "Mrs",
-        "first": "Sandra",
-        "last": "Calvo"
-      },
-      "nat": "ES"
-    },
-    {
-      "gender": "Female",
-      "name": {
-        "title": "Mrs",
-        "first": "Riley",
-        "last": "Mills"
-      },
-      "nat": "US"
     }
   ]
 }
