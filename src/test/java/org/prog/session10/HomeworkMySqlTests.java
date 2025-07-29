@@ -82,7 +82,7 @@ private ResultsDto getUsers(int amount) {
     Response respones = RestAssured.given()
             .baseUri("https://randomuser.me/")
             .basePath("api/")
-            .queryParam("inc", "gender,name,nat")
+            .queryParam("inc", "gender,name,nat, city, street, house number")
             .queryParam("results", amount)
             .queryParam("noinfo")
             .get();
