@@ -1,4 +1,21 @@
 package org.prog.session11;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-public class CucumberRunnerHomework {
-}
+
+
+    @CucumberOptions(
+            features = "src/test/resources/features",
+            glue = "org.prog.session11.steps",
+            plugin = {
+                    "pretty",
+                    "html:target/cucumber-reports/cucumber.html",
+                    "json:target/cucumber-reports/cucumber.json"
+            },
+            monochrome = true
+    )
+     public class CucumberRunnerHomework extends AbstractTestNGCucumberTests
+    {
+    }
+
+

@@ -18,9 +18,9 @@ public class AlloPageHomework {
     public  void loadPage() {
         driver.get("https://allo.ua/");
     }
-    public void searchAllo(){
+    public void searchAllo(String text){
         WebElement search = driver.findElement(By.name("search"));
-        search.sendKeys("iPhone 16");
+        search.sendKeys(text);
         search.sendKeys(Keys.ENTER);
     }
 
