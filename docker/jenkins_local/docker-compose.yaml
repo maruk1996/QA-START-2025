@@ -1,8 +1,10 @@
 # docker-compose.yaml
 version: '3.8'
+
 networks:
   selenium_grid_default:
     external: true
+
 services:
   jenkins:
     networks:
@@ -11,9 +13,11 @@ services:
     privileged: true
     user: root
     ports:
-      - 8080:8080
-      - 50000:50000
+      - "8080:8080"
+      - "50000:50000"
     container_name: jenkins
     volumes:
       - ./jenkins_configuration:/var/jenkins_home
-      - ./docker.sock:/var/run/docker.sock
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
