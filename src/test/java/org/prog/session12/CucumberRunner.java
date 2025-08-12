@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.prog.session11.steps.DBSteps;
 import org.prog.session11.steps.WebSteps;
+import org.prog.session14.DBConnectionFactory;
+import org.prog.session14.WebDriverFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -17,18 +19,21 @@ import java.sql.SQLException;
 import java.util.HashMap;
 
 @CucumberOptions(
+//        tags = "@work-in-progress",
         features = "src/test/resources/features",
-        glue = "org.prog.session11.steps"
+        glue = "org.prog.session11.steps",
+        plugin = {
+                "pretty",
+                "json:target/cucumber-reports/Cucumber.json",
+                "html:target/cucumber-report.html"
+        }
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
     @BeforeSuite
     public void beforeSuite() throws ClassNotFoundException, SQLException, MalformedURLException {
-        WebSteps.driver = new RemoteWebDriver(
-                new URL("http://selenium-hub:4444"), remoteChrome());
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        DBSteps.connection = DriverManager.getConnection(
-                "jdbc:mysql://mysql-db-1:3306/db", "root", "password");
+        WebSteps.driver = WebDriverFactory.getDriver();
+        DBSteps.connection = DBConnectionFactory.getConnection();
     }
 
     @AfterSuite
